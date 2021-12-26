@@ -1,6 +1,9 @@
 package ec.edu.epn.PPB;
 
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Usuario {
     private String nombre;
     private String apellido;
@@ -66,6 +69,48 @@ public class Usuario {
             e.printStackTrace();
         }
         return false;
+    }
+    public static void main (String [ ] args) {
+
+        Scanner input= new Scanner(System.in);
+
+        //Leer archivo e inicializar un array de usuarios
+
+        ArrayList<Usuario> usuarios=  new ArrayList<Usuario>();
+
+        Usuario temporal=new Usuario();
+
+        String nombre;
+        String apellido;
+        int edad;
+        String direccion;
+        String cedula;
+        String nombreUsuario;
+        String contrasena;
+
+
+        System.out.println("Ingrese su nombre");
+        nombre= input.nextLine();
+        System.out.println("Ingrese su apellido");
+        apellido= input.nextLine();
+        System.out.println("Ingrese su edad");
+        edad= Integer.valueOf(input.nextLine());
+        System.out.println("Ingrese su direccion");
+        direccion= input.nextLine();
+        System.out.println("Ingrese su cedula");
+        cedula= input.nextLine();
+        System.out.println("Ingrese su nombre de Usuario");
+        nombreUsuario= input.nextLine();
+        System.out.println("Ingrese su contraseña");
+        contrasena= input.nextLine();
+
+        if(temporal.validarDatos(nombre,apellido,edad,direccion,cedula,nombreUsuario,contrasena)==1){
+            usuarios.add(new Usuario(nombre,apellido,edad,direccion,cedula,nombreUsuario,contrasena));
+            //reescribir el archivo
+            System.out.println("Usuario registrado exitosamente");
+        } else{
+            System.out.println("Datos incorrectos, revise los datos ingresados");
+        }
     }
 
 }
