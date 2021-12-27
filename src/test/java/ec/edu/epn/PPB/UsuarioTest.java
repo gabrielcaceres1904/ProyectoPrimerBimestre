@@ -30,7 +30,8 @@ public class UsuarioTest {
         String nombreUsuario="User1";
         String contrasena="12345";
         System.out.println("Test 1");
-        assertEquals(1,u.validarDatos(nombre,apellido,edad,direccion,cedula,nombreUsuario,contrasena));
+        u= new Usuario(nombre,apellido,edad,direccion,cedula,nombreUsuario,contrasena);
+        assertEquals(1,u.validarDatos());
     }
 
     @Test
@@ -43,7 +44,8 @@ public class UsuarioTest {
         String nombreUsuario="User1";
         String contrasena="12345";
         System.out.println("Test 2");
-        assertEquals(0,u.validarDatos(nombre,apellido,edad,direccion,cedula,nombreUsuario,contrasena));
+        u= new Usuario(nombre,apellido,edad,direccion,cedula,nombreUsuario,contrasena);
+        assertEquals(0,u.validarDatos());
     }
 
     @Test
@@ -56,7 +58,8 @@ public class UsuarioTest {
         String nombreUsuario="User1";
         String contrasena="12345";
         System.out.println("Test 3");
-        assertEquals(0,u.validarDatos(nombre,apellido,edad,direccion,cedula,nombreUsuario,contrasena));
+        u= new Usuario(nombre,apellido,edad,direccion,cedula,nombreUsuario,contrasena);
+        assertEquals(0,u.validarDatos());
     }
 
     @Test
@@ -69,7 +72,8 @@ public class UsuarioTest {
         String nombreUsuario="User1";
         String contrasena="12345";
         System.out.println("Test 4");
-        assertEquals(0,u.validarDatos(nombre,apellido,edad,direccion,cedula,nombreUsuario,contrasena));
+        u= new Usuario(nombre,apellido,edad,direccion,cedula,nombreUsuario,contrasena);
+        assertEquals(0,u.validarDatos());
     }
 
 

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Usuario {
+    Scanner input= new Scanner(System.in);
     private String nombre;
     private String apellido;
     private int edad;
@@ -26,7 +27,7 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-    public int validarDatos(String nombre, String apellido, int edad, String direccion, String cedula, String nombreUsuario, String contrasena) {
+    public int validarDatos() {
         if (edad<18 || edad>100){
             return 0;
         }
@@ -74,25 +75,8 @@ public class Usuario {
         }
         return false;
     }
-    public static void main (String [ ] args) {
 
-        Scanner input= new Scanner(System.in);
-
-        //Leer archivo e inicializar un array de usuarios
-
-        ArrayList<Usuario> usuarios=  new ArrayList<Usuario>();
-
-        Usuario temporal=new Usuario();
-
-        String nombre;
-        String apellido;
-        int edad;
-        String direccion;
-        String cedula;
-        String nombreUsuario;
-        String contrasena;
-
-
+    public void ingresoDatos(){
         System.out.println("Ingrese su nombre");
         nombre= input.nextLine();
         System.out.println("Ingrese su apellido");
@@ -107,9 +91,21 @@ public class Usuario {
         nombreUsuario= input.nextLine();
         System.out.println("Ingrese su contraseña");
         contrasena= input.nextLine();
+    }
 
-        if(temporal.validarDatos(nombre,apellido,edad,direccion,cedula,nombreUsuario,contrasena)==1){
-            usuarios.add(new Usuario(nombre,apellido,edad,direccion,cedula,nombreUsuario,contrasena));
+    public static void main (String [ ] args) {
+
+        //Leer archivo e inicializar un array de usuarios
+
+        ArrayList<Usuario> usuarios=  new ArrayList<Usuario>();
+
+        Usuario temporal=new Usuario();
+
+        temporal.ingresoDatos();
+
+        if(temporal.validarDatos()==1){
+            usuarios.add(temporal);
+            temporal=new Usuario();
             //reescribir el archivo
             System.out.println("Usuario registrado exitosamente");
         } else{
