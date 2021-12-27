@@ -31,6 +31,10 @@ public class Usuario {
             return 0;
         }
 
+        if (nombre==""||apellido==""||direccion==""||cedula==""||nombreUsuario==""||contrasena==""){
+            return 0;
+        }
+
         if(!isEcuadorianDocumentValid(cedula)){
             return 0;
         }
